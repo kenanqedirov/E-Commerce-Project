@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\CategoryDetailServices\**" />
+    <Compile Remove="Services\CategoryImageServices\**" />
+    <Content Remove="Services\CategoryDetailServices\**" />
+    <Content Remove="Services\CategoryImageServices\**" />
+    <EmbeddedResource Remove="Services\CategoryDetailServices\**" />
+    <EmbeddedResource Remove="Services\CategoryImageServices\**" />
+    <None Remove="Services\CategoryDetailServices\**" />
+    <None Remove="Services\CategoryImageServices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MongoDB.Bson" Version="2.23.1" />
     <PackageReference Include="MongoDB.Driver" Version="2.23.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
