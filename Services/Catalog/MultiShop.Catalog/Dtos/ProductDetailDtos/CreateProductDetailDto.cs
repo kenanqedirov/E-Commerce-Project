@@ -2,7 +2,8 @@
 {
     public class CreateProductDetailDto
     {
-        public string ProductDescription { get; set; }
-        public string ProductInfo { get; set; }
+        public string ProductDetailDescription { get; set; }
+        public string ProductDetailInfo { get; set; }
+        public string ProductId { get; set; }
     }
-}
+} 

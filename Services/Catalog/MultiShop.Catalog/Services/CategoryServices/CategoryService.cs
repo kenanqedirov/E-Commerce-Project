@@ -20,7 +20,7 @@ namespace MultiShop.Catalog.Services.CategoryServices
         public async Task CreateCategoryAsync(CreateCategoryDto createCategoryDto)
         {
             var value = _mapper.Map<Category>(createCategoryDto);
-            _categoryCollection.InsertOneAsync(value);
+            await _categoryCollection.InsertOneAsync(value);
         }
 
         public async Task DeleteCategoryAsync(string id)
@@ -30,8 +30,10 @@ namespace MultiShop.Catalog.Services.CategoryServices
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
-            var values =await _categoryCollection.Find(x=>true).ToListAsync();
-            return _mapper.Map<List<ResultCategoryDto>>(values);
+            var values =await  _categoryCollection.Find(x=>x.CategoryName == "string").ToListAsync();
+            var value = _mapper.Map<List<ResultCategoryDto>>(values);
+            return value;
+               
         }
 
         public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(string id)
