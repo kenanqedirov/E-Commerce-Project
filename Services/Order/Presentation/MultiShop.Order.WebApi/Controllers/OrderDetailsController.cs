@@ -41,7 +41,7 @@ namespace MultiShop.Order.WebApi.Controllers
         public async Task<IActionResult> CreateOrderDetail(CreateOrderDetailCommand command)
         {
             await _createOrderDetailCommandHandler.Handle(command);
-            return Ok();
+            return Ok("Order Detail Added");
         }
         [HttpDelete]
         public async Task<IActionResult> RemoveOrderDetail(int id)
