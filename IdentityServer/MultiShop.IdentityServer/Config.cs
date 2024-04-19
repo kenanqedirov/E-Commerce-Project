@@ -40,8 +40,8 @@ namespace MultiShop.IdentityServer
                 ClientId="MultiShopVisitorId",
                 ClientName="MultiShopVisitorUser",
                 AllowedGrantTypes= GrantTypes.ClientCredentials,
-                ClientSecrets= {new Secret("MultiShopSecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission" }
+                ClientSecrets= {new Secret("multishopsecret".Sha256()) },
+                AllowedScopes = { "DiscountFullPermission" }
             },
             // Manager 
             new Client
@@ -49,7 +49,7 @@ namespace MultiShop.IdentityServer
                 ClientId="MultiShopManagerId",
                 ClientName="MultiShop Manager User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets = {new Secret("MultiShopSecret".Sha256()) },
+                ClientSecrets = {new Secret("multishopsecret".Sha256()) },
                 AllowedScopes= { "CatalogFullPermission", "CatalogReadPermission" }
             },
             //Admin
@@ -58,7 +58,7 @@ namespace MultiShop.IdentityServer
                 ClientId ="MultiShopAdminId",
                 ClientName = "MultiShop Admin User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets = {new Secret("MultiShopSecret".Sha256())},
+                ClientSecrets = {new Secret("multishopsecret".Sha256())},
                 AllowedScopes = {"CatalogReadPermission","CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission" ,
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
