@@ -1,37 +1,40 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MultiShop.Cargo.BusinessLayer.Abstract;
 using MultiShop.Cargo.BusinessLayer.Concrete;
 using MultiShop.Cargo.DtoLayer.Dtos.CargoCustomerDtos;
 using MultiShop.Cargo.EntityLayer.Concrete;
 
 namespace MultiShop.Cargo.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CargoCustomersController : ControllerBase
     {
-        private readonly ICargoCustomerManager _cargoCustomerManager;
+        private readonly ICargoCustomerService _cargoCustomerManager;
 
-        public CargoCustomersController(ICargoCustomerManager cargoCustomerManager)
+        public CargoCustomersController(ICargoCustomerService cargoCustomerManager)
         {
             _cargoCustomerManager = cargoCustomerManager;
         }
         [HttpGet]
         public IActionResult CargoCustomerList()
         {
-            var values = _cargoCustomerManager.GetAll();
+            var values = _cargoCustomerManager.TGetAll();
             return Ok(values);
         }
         [HttpGet("{id}")]
         public IActionResult GetCargoCustomerById(int id)
         {
-            var value = _cargoCustomerManager.GetById(id);
+            var value = _cargoCustomerManager.TGetById(id);
             return Ok(value);
         }
         [HttpPost]
         public IActionResult CreateCargoCustomer(CreateCargoCustomerDto createCargoCustomerDto)
         {
-            _cargoCustomerManager.Insert(new CargoCustomer
+            _cargoCustomerManager.TInsert(new CargoCustomer
             {
                 Address = createCargoCustomerDto.Address,
                 City = createCargoCustomerDto.City,
@@ -46,13 +49,13 @@ namespace MultiShop.Cargo.WebApi.Controllers
         [HttpDelete]
         public IActionResult  RemoveCargoCustomer(int id)
         {
-            _cargoCustomerManager.Delete(id);
+            _cargoCustomerManager.TDelete(id);
             return Ok("CargoCustomer successfully deleted");
         }
         [HttpPut]
         public IActionResult UpdateCargoCustomer(UpdateCargoCustomerDto updateCargoCustomerDto)
         {
-            _cargoCustomerManager.Update(new CargoCustomer
+            _cargoCustomerManager.TUpdate(new CargoCustomer
             {
                 CargoCustomerId = updateCargoCustomerDto.CargoCustomerId,
                 Address = updateCargoCustomerDto.Address, 
