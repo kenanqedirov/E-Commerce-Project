@@ -30,7 +30,7 @@ namespace MultiShop.Catalog.Services.CategoryServices
 
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
-            var values =await  _categoryCollection.Find(x=>x.CategoryName == "string").ToListAsync();
+            var values =await  _categoryCollection.Find(x=>true).ToListAsync();
             var value = _mapper.Map<List<ResultCategoryDto>>(values);
             return value;
                

@@ -8,6 +8,7 @@ using MultiShop.Catalog.Services.CategoryServices;
 
 namespace MultiShop.Catalog.Controllers
 {
+    [AllowAnonymous]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -36,7 +37,7 @@ namespace MultiShop.Catalog.Controllers
             await _categoryService.CreateCategoryAsync(createCategoryDto);
             return Ok("Category successfully added");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCAtegory(string id)
         {
             await _categoryService.DeleteCategoryAsync(id);

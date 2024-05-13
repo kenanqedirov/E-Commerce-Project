@@ -1,0 +1,26 @@
+﻿@model UpdateCategoryDto
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout/Index.cshtml";
+}
+
+<h1>UpdateCategory</h1>
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <label>Category Id</label>
+                        <input type="text" asp-for="CategoryId" class="form-control" readonly /><br />
+                        <label>Category Name</label>
+                        <input type="text" asp-for="CategoryName" class="form-control" /><br />
+                        <button class="btn btn-primary">Update Category</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+﻿@model List<MultiShop.DtoLayer.Dtos.CatalogDtos.CategoryDtos.ResultCategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Category Name</th>
+                                <th>Category about</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.CategoryId</th>
+                                    <td>@item.CategoryName</td>
+                                    <td><a href="#" class="btn btn-warning">About</a></td>
+                                    <td><a href="/Admin/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a></td>
+                                    <td><a href="/Admin/Category/UpdateCategory/@item.CategoryId" class="btn btn-success">Update</a></td>
+                                    <td>mdo</td>
+                                </tr>
+                            }                        
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Category/CreateCategory/" class="btn btn-primary">Add new Category</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
