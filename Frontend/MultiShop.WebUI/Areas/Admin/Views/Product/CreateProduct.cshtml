@@ -1,0 +1,37 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout/Index.cshtml";
+}
+
+<h1>CreateProduct</h1>
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <label>Product Name</label>
+                        <input type="text" asp-for="ProductName" class="form-control" />
+                        <br />
+                        <label>Product Price</label>
+                        <input type="text" asp-for="ProductPrice" class="form-control" />
+                        <br />
+                        <label>Product Image</label>
+                        <input type="text" asp-for="ProductImageUrl" class="form-control" />
+                        <br />
+                        <label>Product Category</label>
+                        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.CategoryValues , new {@class="form-control"})
+                        <br />
+                        <label>Product Name</label>
+                        <textarea rows="5"  class="form-control" asp-for="ProductDescription"></textarea>
+                        <br />
+                        <button class="btn btn-primary">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

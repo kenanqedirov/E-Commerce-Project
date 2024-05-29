@@ -76,5 +76,21 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+
+        [Route("UpdateCategory/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
+            StringContent stringContent= new StringContent(jsonData,Encoding.UTF8,"application/json");
+            var responseMessage = await client.PutAsync("https://localhost:7070/api/Categories",stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("Index", "Category", new { area = "Admin" });
+            }
+            return View();
+        }
     }
 }

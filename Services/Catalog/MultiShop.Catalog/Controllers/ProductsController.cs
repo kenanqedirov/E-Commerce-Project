@@ -7,6 +7,7 @@ using MultiShop.Catalog.Services.ProductServices;
 
 namespace MultiShop.Catalog.Controllers
 {
+    [AllowAnonymous]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -35,7 +36,7 @@ namespace MultiShop.Catalog.Controllers
             await _productService.CreateProductAsync(createProductDto);
             return Ok("Product successfully added");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
             await _productService.DeleteProductAsync(id);
