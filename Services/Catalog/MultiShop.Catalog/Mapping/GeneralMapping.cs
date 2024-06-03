@@ -3,6 +3,7 @@ using MultiShop.Catalog.Dtos.CategoryDtos;
 using MultiShop.Catalog.Dtos.CategoryDetailDtos;
 using MultiShop.Catalog.Dtos.CategoryImageDtos;
 using MultiShop.Catalog.Entities;
+using MultiShop.Catalog.Dtos.ProductDtos;
 
 namespace MultiShop.Catalog.Mapping
 {
@@ -29,6 +30,8 @@ namespace MultiShop.Catalog.Mapping
             CreateMap<ProductImage, CreateProductImageDto>().ReverseMap();
             CreateMap<ProductImage, UpdateProductImageDto>().ReverseMap();
             CreateMap<ProductImage, GetByIdProductImageDto>().ReverseMap();
+
+            CreateMap<ResultProductsWithCategoryDto,Product>().ReverseMap();
         }
     }
 }
