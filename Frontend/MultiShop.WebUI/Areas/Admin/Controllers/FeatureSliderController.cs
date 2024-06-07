@@ -20,7 +20,6 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [Route("Index")]
         public async Task<IActionResult> Index()
-
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7070/api/FeatureSliders");
@@ -42,6 +41,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateFeatureSlider")]
         public async Task<IActionResult> CreateFeatureSlider(CreateFeatureSliderDto createFeatureSliderDto)
         {
+            createFeatureSliderDto.Status = false;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createFeatureSliderDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
