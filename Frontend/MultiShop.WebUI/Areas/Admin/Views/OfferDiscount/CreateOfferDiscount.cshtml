@@ -1,0 +1,30 @@
+﻿@model CreateOfferDiscountDto
+@{
+    ViewData["Title"] = "CreateOfferDiscount";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout/Index.cshtml";
+}
+
+<h1>CreateOfferDiscount</h1>
+
+<section class="content container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <label>Offer Discount Title</label>
+                        <input type="text" asp-for="Title" class="form-control" /><br />
+                        <label>Offer Discount Subtitle</label>
+                        <input type="text" asp-for="SubTitle" class="form-control" /><br />
+                        <label>Image Url</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" /><br />
+                        <label>Button Title</label>
+                        <input type="text" asp-for="ButtonTitle" class="form-control" /><br />
+                        <button class="btn btn-primary">Add Offer Discount</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
