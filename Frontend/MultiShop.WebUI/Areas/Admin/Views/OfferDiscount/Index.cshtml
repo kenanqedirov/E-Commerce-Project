@@ -18,17 +18,23 @@
                                 <th>Update</th>
                             </tr>
                         </thead>
-                        <tbody>
+
+                        @if (Model is not null)
+                        {
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>@item.Title</td>
-                                    <td>@item.SubTitle</td>
-                                    <td><a href="/Admin/OfferDiscount/DeleteOfferDiscount/@item.OfferDiscountId" class="btn btn-danger">Delete</a></td>
-                                    <td><a href="/Admin/OfferDiscount/UpdateOfferDiscount/@item.OfferDiscountId" class="btn btn-success">Update</a></td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>@item.Title</td>
+                                        <td>@item.SubTitle</td>
+                                        <td>@item.ImageUrl</td>
+                                        <td>@item.ButtonTitle</td>
+                                        <td><a href="/Admin/OfferDiscount/DeleteOfferDiscount/@item.OfferDiscountId" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="/Admin/OfferDiscount/UpdateOfferDiscount/@item.OfferDiscountId" class="btn btn-success">Update</a></td>
+                                    </tr>
+                                </tbody>
                             }
-                        </tbody>
+                        }
                     </table>
                     <a href="/Admin/OfferDiscount/CreateOfferDiscount/" class="btn btn-primary">Add new OfferDiscount</a>
                 </div>

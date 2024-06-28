@@ -20,7 +20,6 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [Route("Index")]
         public async Task<IActionResult> Index()
-
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7070/api/OfferDiscounts");
